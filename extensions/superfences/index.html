@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.8.0">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.9.0">
     
     
       
@@ -44,9 +44,14 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.e8ff00e1.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.4f4f49e8.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
       
     
     
@@ -1441,7 +1446,102 @@ D--&gt;&gt;A: Dashed open arrow</code></pre></div>
 <p>As mentioned earlier, our flowchart elements have the <code>uml-flowchart</code> class assigned to them, and the sequence diagram elements have the <code>uml-sequence-diagram</code> class assigned to them. Below shows an example script to convert the UML diagrams for both flowcharts and sequence diagrams using the listed libraries above. This script will target the elements with the classes <code>uml-flowchart</code> and <code>uml-sequence-diagram</code>. The script will pass the content to the correct library to render the content.  It will then insert the rendered UML and remove the original source. This is just an example, and you are not required to use the following script. You are free to modify the example script or write your own to suite your specific custom fence.</p>
 <p>In the below example we create an <code>onReady</code> function to execute the conversion when the HTML is loaded.  We create a <code>convertUML</code> function that takes the class name to search for, the converter to use, and a settings object to feed into the converter.  We then call <code>onReady</code> and feed it a callback function that will execute <code>convertUML</code> for flowcharts and for sequence diagrams. Notice that <code>convertUML</code> can handle both the <code class="codehilite"><span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">code</span><span class="p">&gt;</span></code> format or the <code class="codehilite"><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span></code> format we mentioned earlier.</p>
 <p>The actual <code>convertUML</code> function reads UML instructions from our element and sticks it in a div that gets appended to our main HTML content (in this case we look for the the <code>body</code> tag, but it could be anything). We don't want to do it in place where our UML instructions are because it might be under an element that is hiding it with <code>display: none</code> (like a <code>details</code> tag); it won't render correctly if its parent is not displayed.  After we render the SVG, we insert it back where it belongs throwing away the original element that had the instructions.</p>
-<div class="codehilite"><pre><span></span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
 
 <span class="cm">/**</span>
@@ -1538,6 +1638,7 @@ D--&gt;&gt;A: Dashed open arrow</code></pre></div>
 
 <span class="p">}());</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link"></a></h2>
 <p>This extension suffers from the same issues that the original fenced block extension suffers from.  Normally Python Markdown does not parse content inside HTML tags unless they are marked with the attribute <code>markdown='1'</code>.  But since this is run as a preprocessor, it is not aware of the HTML blocks.</p>
@@ -1684,7 +1785,7 @@ D--&gt;&gt;A: Dashed open arrow</code></pre></div>
     
       <script src="../../assets/javascripts/application.a59e2a89.js"></script>
       
-      <script>app.initialize({version:"0.17.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
       
         <script src="../../extra-d8800ea088.js"></script>
       
