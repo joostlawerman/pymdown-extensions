@@ -1200,7 +1200,7 @@ import foo.bar
 </div>
 <p>Pygments also has a few additional options in regards to line numbers. One is "line step" which, if set to a number n &gt; 1, will print only every n<sup>th</sup> line number. The other option is a setting that can mark line numbers as "special" with a span and class <code>special</code>. If the special parameter is set to a number n &gt; 0, every n<sup>th</sup> line number is given the CSS class <code>special</code>.</p>
 <p>So to set showing only every other line number, we could do the following. Line options are separated by a space, and "line step" is always the second option, so you must specify line start before line step.</p>
-<p>Pygments currently implements this a little weird and doesn't pad the first line number, so don't be surprised if line numbers don't quite line up correctly. Hopefully Pygments will fix this in the future.</p>
+<p>Pygments currently implements step a little weird. Step is always relative to 1, not from the specified starting line number. Pygments doesn't pad before the first shown step even when the starting line number doesn't align with the first step. If the starting does not align with the first step, line numbers could be off. Step is best used when using 1 as the starting line. Hopefully Pygments will fix this in the future.</p>
 <div class="admonition example">
 <p class="admonition-title">Nth Line Example</p>
 <div class="superfences-tabs">
